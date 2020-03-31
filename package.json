@@ -15,16 +15,16 @@
     "test": "jest --passWithNoTests",
     "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/LifeBac/intakeq-api.git"
-  },
+  "repository": "git://github.com/lifebac/intakeq-api.git",
   "author": "Justin Rahardjo <hello@justinrahardjo.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/LifeBac/intakeq-api/issues"
   },
   "homepage": "https://github.com/LifeBac/intakeq-api#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "dependencies": {
     "axios": "^0.19.2"
   },
