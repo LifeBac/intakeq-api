@@ -1,6 +1,7 @@
 # Config files
 .gitignore
 .prettierignore
+.eslintignore
 .npmrc
 .browserslistrc
 yarn.lock
