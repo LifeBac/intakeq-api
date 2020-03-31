@@ -33,5 +33,3 @@ export * from './appointment/interfaces';
 export * from './client/interfaces';
 export * from './notes/interfaces';
 export * from './questionnaire/interfaces';
-
-export default IntakeQApi;

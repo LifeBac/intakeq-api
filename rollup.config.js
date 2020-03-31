@@ -16,7 +16,9 @@ export default {
       name: '@lifebac/intakeq',
       file: pkg.browser,
       format: 'umd',
-      globals: {},
+      globals: {
+        axios: 'axios',
+      },
     },
   ],
   external: [
