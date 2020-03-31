@@ -30,5 +30,7 @@ jobs:
       - run: npm run test
       # Run the build as well, to make sure it does build
       - run: npm run build
+      # Login to npm
+      - run: npm login --registry=https://npm.pkg.github.com --scope=@lifebac
       # Publish
       - run: npm publish
