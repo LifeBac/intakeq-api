@@ -1,0 +1,11 @@
+# Config files
+.gitignore
+.prettierignore
+.npmrc
+.browserslistrc
+yarn.lock
+package-lock.json
+.env.*
+
+# Bash Scripts
+**/*.sh

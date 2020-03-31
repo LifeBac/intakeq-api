@@ -1,0 +1,48 @@
+{
+  "name": "@lifebac/intakeq",
+  "version": "1.0.0",
+  "description": "The IntakeQ API js Client",
+  "main": "dist/bundle.js",
+  "module": "dist/bundle.esm.js",
+  "browser": "dist/bundle.umd.js",
+  "files": [
+    "dist"
+  ],
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "./scripts/build.sh",
+    "dev": "./scripts/dev.sh",
+    "test": "jest --passWithNoTests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LifeBac/intakeq-api.git"
+  },
+  "author": "Justin Rahardjo <hello@justinrahardjo.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LifeBac/intakeq-api/issues"
+  },
+  "homepage": "https://github.com/LifeBac/intakeq-api#readme",
+  "devDependencies": {
+    "dts-bundle": "^0.7.3",
+    "husky": "^4.2.3",
+    "jest": "^25.2.4",
+    "lint-staged": "^10.1.0",
+    "prettier": "^2.0.2",
+    "rollup": "^2.3.1",
+    "rollup-plugin-typescript2": "^0.27.0",
+    "ts-jest": "^25.3.0",
+    "typescript": "^3.8.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*": [
+      "prettier --write"
+    ]
+  }
+}
