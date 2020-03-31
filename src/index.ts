@@ -1,7 +1,10 @@
 import axios, { AxiosInstance } from 'axios';
+import { ClientApi } from './client';
 
 class IntakeQApi {
   protected api: AxiosInstance;
+
+  public Client: ClientApi;
 
   constructor(apiKey: string) {
     this.api = axios.create({
@@ -9,6 +12,8 @@ class IntakeQApi {
       timeout: 5000,
       headers: { 'X-Auth-Key': apiKey },
     });
+
+    this.Client = new ClientApi(this.api);
   }
 }
 
