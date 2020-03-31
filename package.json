@@ -1,6 +1,6 @@
 {
   "name": "@lifebac/intakeq",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "The IntakeQ API js Client",
   "main": "dist/bundle.js",
   "module": "dist/bundle.esm.js",
@@ -16,7 +16,11 @@
     "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx"
   },
   "repository": "git://github.com/lifebac/intakeq-api.git",
-  "author": "Justin Rahardjo <hello@justinrahardjo.com>",
+  "author": "LifeBac Developers <developer@lifebac.com>",
+  "contributors": [
+    "Justin Rahardjo <hello@justinrahardjo.com>",
+    "Patrick Eaton <patrick.eaton.04@gmail.com"
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/LifeBac/intakeq-api/issues"
