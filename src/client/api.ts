@@ -7,6 +7,9 @@ import {
   ClientTag,
 } from './interfaces';
 
+const ENDPOINT = 'clients';
+const TAG_ENDPOINT = 'clientTags';
+
 export class ClientApi {
   constructor(private api: AxiosInstance) {}
 
@@ -52,7 +55,7 @@ export class ClientApi {
       urlParams.push(`includeProfile=true`);
     }
     const res = await this.api.get<ClientWithProfile[] | ClientReceived[]>(
-      `clients?${urlParams.join('&')}`
+      `${ENDPOINT}?${urlParams.join('&')}`
     );
 
     // Rename inconsistent ClientNumber to be ClientId like the rest of the endpoints
@@ -79,7 +82,7 @@ export class ClientApi {
    * @param client The client object to save
    */
   async save(client: Partial<ClientWithProfile>): Promise<ClientWithProfile> {
-    const res = await this.api.post<ClientWithProfile>('clients', client);
+    const res = await this.api.post<ClientWithProfile>(ENDPOINT, client);
     return res.data;
   }
 
@@ -89,7 +92,7 @@ export class ClientApi {
    * @param tag The tag to set
    */
   async addTag(clientId: number, tag: string): Promise<ClientTag> {
-    const res = await this.api.post<ClientTag>('clientTags', {
+    const res = await this.api.post<ClientTag>(TAG_ENDPOINT, {
       ClientId: clientId,
       Tag: tag,
     });
@@ -102,6 +105,6 @@ export class ClientApi {
    * @param tag The tag to remove
    */
   async removeTag(clientId: number, tag: string): Promise<void> {
-    await this.api.delete(`clientTags?clientId=${clientId}&tag=${tag}`);
+    await this.api.delete(`${TAG_ENDPOINT}?clientId=${clientId}&tag=${tag}`);
   }
 }

@@ -1,13 +1,16 @@
 import axios, { AxiosInstance } from 'axios';
-import { ClientApi } from './client/api';
 import { AppointmentApi } from './appointment/api';
+import { ClientApi } from './client/api';
+import { NotesApi } from './notes/api';
 
 export class IntakeQApi {
   protected api: AxiosInstance;
 
+  public Appointment: AppointmentApi;
+
   public Client: ClientApi;
 
-  public Appointment: AppointmentApi;
+  public Notes: NotesApi;
 
   constructor(apiKey: string) {
     this.api = axios.create({
@@ -18,9 +21,12 @@ export class IntakeQApi {
 
     this.Client = new ClientApi(this.api);
     this.Appointment = new AppointmentApi(this.api);
+    this.Notes = new NotesApi(this.api);
   }
 }
 
+export * from './appointment/interfaces';
 export * from './client/interfaces';
+export * from './notes/interfaces';
 
 export default IntakeQApi;
