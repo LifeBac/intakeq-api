@@ -15,6 +15,7 @@ export class IntakeQApi {
   public Notes: NotesApi;
 
   public Questionnaire: QuestionnaireApi;
+
   public Invoice: InvoiceApi;
 
   constructor(apiKey: string) {
