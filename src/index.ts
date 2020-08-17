@@ -35,5 +35,6 @@ export class IntakeQApi {
 
 export * from './appointment/interfaces';
 export * from './client/interfaces';
+export * from './invoice/interfaces';
 export * from './notes/interfaces';
 export * from './questionnaire/interfaces';
