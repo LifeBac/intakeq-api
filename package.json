@@ -1,6 +1,6 @@
 {
   "name": "@lifebac/intakeq",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "The IntakeQ API js Client",
   "main": "dist/bundle.js",
   "module": "dist/bundle.esm.js",
@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/LifeBac/intakeq-api#readme",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "access": "public"
   },
   "dependencies": {
     "axios": "^0.19.2"
