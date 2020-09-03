@@ -70,10 +70,25 @@ export interface IntakeFormSummary {
   Practitioner: string;
   /** The name of the practitioner associated with the intake (for accounts with multiple practitioners) */
   PractitionerName: string;
+  /** If the form is associated with an appointment then this is the id */
+  AppointmentId?: string;
 }
 
 export interface IntakeForm extends IntakeFormSummary {
   Questions: QuestionList;
+  /** Consent Forms associated with this IntakeForm */
+  ConsentForms: {
+    /** The Id of the Consent Form */
+    Id: string;
+    /** The name of the Consent Form */
+    Name: string;
+    /** The document type */
+    DocumentType: 'Html';
+    /** Whether or not the consent form has been signed */
+    Signed: boolean;
+    /** The date the consent form was submitted in Unix timestamp */
+    DateSubmitted: number;
+  }[];
 }
 
 export interface Questionnaire {
