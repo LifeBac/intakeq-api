@@ -1,6 +1,6 @@
 {
   "name": "@lifebac/intakeq",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "The IntakeQ API js Client",
   "main": "dist/bundle.js",
   "module": "dist/bundle.esm.js",
