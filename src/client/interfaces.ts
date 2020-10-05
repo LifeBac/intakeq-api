@@ -48,7 +48,7 @@ export interface ClientWithProfile extends Client {
   LastActivityDate: number; // Unix timestamp,
   CustomFields: {
     FieldId: string;
-    Text: string;
+    Text?: string;
     Value: string;
   }[];
   // Undocumented in the docs, but it is returned
