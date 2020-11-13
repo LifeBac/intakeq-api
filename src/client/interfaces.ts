@@ -54,6 +54,8 @@ export interface ClientWithProfile extends Client {
   // Undocumented in the docs, but it is returned
   PractitionerId: string;
   Guid: string;
+  StripeCustomerId: string | null;
+  SquareCustomerId: string | null;
 }
 
 export interface ClientTag {
