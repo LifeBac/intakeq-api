@@ -111,7 +111,13 @@ export interface ListInvoicesRequest {
 }
 
 export interface InvoiceReceived {
-  EventType: 'InvoiceIssued' | 'InvoicePaid';
+  EventType:
+    | 'InvoiceIssued'
+    | 'InvoicePaid'
+    | 'InvoicePaymentPlanChargeFailed'
+    | 'InvoiceAutoChargeFailed'
+    | 'InvoiceCancelled'
+    | 'InvoicePaymentRefunded';
   ActionPerformedByClient: boolean;
-  Invoice: Invoice;
+  Invoice: Invoice; //refer to the invoice object above
 }
