@@ -3,11 +3,13 @@ export interface CardDetails {
   LastDigits: string;
   ExpirationMonth: number;
   ExpirationYear: number;
-  CardId: string; // Square/Stripe Card ID
+  /** Square/Stripe Card ID */
+  CardId: string;
 }
 
 export interface InvoicePayment {
-  Date: number; //Unix Timestamp
+  /** Unix timestamp */
+  Date: number;
   Amount: number;
   Currency: string;
   Method:
@@ -36,7 +38,8 @@ export interface InvoiceSubItem {
   Units: number;
   Description: string;
   Date: number;
-  Modifiers: any[]; // They don't actually ever mention what this is...
+  /** They don't actually ever mention what this is... */
+  Modifiers: any[];
 }
 
 export interface InvoiceItem {
@@ -46,7 +49,8 @@ export interface InvoiceItem {
   TotalTaxAmount: number;
   Units: number;
   Price: number;
-  Date: number; // Unix Timestamp
+  /** Unix Timestamp */
+  Date: number;
   Taxes: { Name: string; Percentage: number }[];
   TaxesIncludedInPrice: boolean;
   IsCopay: boolean;
@@ -56,28 +60,31 @@ export interface InvoiceItem {
 }
 
 export interface Invoice {
-  // These two fields seem to be the same, just one is a number and one is a string for some reason...
+  /** These two fields seem to be the same, just one is a number and one is a string for some reason... */
   Id: string;
   Number: number;
   ClientName: string;
   ClientEmail: string;
   ClientId: 9999;
-  /*
-    Draft – The invoice has been created but not issued.
-    Unpaid – The invoice has been issued and has not been paid.
-    PastDue – The invoice has past the payment date and the customer has not paid.
-    Paid – The invoice has been paid by the customer.
-    Refunded – The invoice has been refunded by the staff.
-    Canceled - The Invoice has been voided.
-     */
+  /**
+   * Draft – The invoice has been created but not issued.
+   * Unpaid – The invoice has been issued and has not been paid.
+   * PastDue – The invoice has past the payment date and the customer has not paid.
+   * Paid – The invoice has been paid by the customer.
+   * Refunded – The invoice has been refunded by the staff.
+   * Canceled - The Invoice has been voided.
+   */
   Status: 'Draft' | 'Paid' | 'Unpaid' | 'PastDue' | 'Refunded' | 'Canceled';
-  IssuedDate: number; //Unix timestamp,
-  DueDate: number; //Unix timestamp,
-  DateCreated: number; //Unix timestamp,
+  /** Unix Timestamp */
+  IssuedDate: number;
+  /** Unix Timestamp */
+  DueDate: number;
+  /** Unix Timestamp */
+  DateCreated: number;
   CurrencyIso: string;
   DiscountAmount: number;
   DiscountPercent: number;
-  DiscountType: 'Percentage' | 'Amount'; // Percentage, Amount
+  DiscountType: 'Percentage' | 'Amount';
   SubTotal: number;
   TotalAmount: number;
   AmountDue: number;
@@ -94,7 +101,8 @@ export interface Invoice {
 }
 
 export interface ListInvoicesRequest {
-  client?: string; // Partial Matches on either the client's email or name.
+  /** Partial Matches on either the client's email or name. */
+  client?: string;
   status?: string;
   page?: number;
   startDate?: string;
@@ -103,13 +111,7 @@ export interface ListInvoicesRequest {
 }
 
 export interface InvoiceReceived {
-  EventType:
-    | 'InvoiceIssued'
-    | 'InvoicePaid'
-    | 'InvoicePaymentPlanChargeFailed'
-    | 'InvoiceAutoChargeFailed'
-    | 'InvoiceCancelled'
-    | 'InvoicePaymentRefunded';
+  EventType: 'InvoiceIssued' | 'InvoicePaid';
   ActionPerformedByClient: boolean;
-  Invoice: Invoice; //refer to the invoice object above
+  Invoice: Invoice;
 }

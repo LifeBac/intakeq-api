@@ -29,7 +29,7 @@ export class InvoiceApi {
    * Loads a single invoice from it's ID.
    * @param invoiceId The ID of the invoice to load
    */
-  async getInvoice(invoiceId): Promise<Invoice> {
+  async getInvoice(invoiceId: string): Promise<Invoice> {
     const res = await this.api.get<Invoice>(`${ENDPOINT}/${invoiceId}`);
     return res.data;
   }
