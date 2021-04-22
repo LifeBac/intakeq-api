@@ -65,7 +65,8 @@ export interface Invoice {
   Number: number;
   ClientName: string;
   ClientEmail: string;
-  ClientId: number;
+  ClientId: string;
+  ClientIdNumber: number;
   /**
    * Draft – The invoice has been created but not issued.
    * Unpaid – The invoice has been issued and has not been paid.
