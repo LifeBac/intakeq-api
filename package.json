@@ -30,7 +30,7 @@
     "access": "public"
   },
   "dependencies": {
-    "axios": "^0.19.2"
+    "axios": "^0.21.1"
   },
   "devDependencies": {
     "dts-bundle": "^0.7.3",
