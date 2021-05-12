@@ -165,3 +165,15 @@ export type UpdateAppointmentRequest = {
   /** The appointment Id */
   Id: string;
 } & Partial<Omit<CreateAppointmentRequest, 'PractitionerId' | 'ClientId'>>;
+
+export interface AppointmentReceived {
+  EventType:
+    | 'AppointmentCreated'
+    | 'AppointmentConfirmed'
+    | 'AppointmentRescheduled'
+    | 'AppointmentCanceled'
+    | 'AppointmentDeclined'
+    | 'AppointmentMissed';
+  ActionPerformedByClient: boolean;
+  Appointment: Appointment; //refer to the appointment object above
+}
