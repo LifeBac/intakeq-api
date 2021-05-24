@@ -47,7 +47,7 @@ export class QuestionnaireApi {
    * @param intakeId The id of the intake to get
    */
   async getIntakeForm(intakeId: string): Promise<IntakeForm> {
-    const res = await this.api.get<IntakeForm>(`${ENDPOINT}/${intakeId}/pdf`);
+    const res = await this.api.get<IntakeForm>(`${ENDPOINT}/${intakeId}`);
     return res.data;
   }
 
