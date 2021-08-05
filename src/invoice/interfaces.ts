@@ -102,16 +102,59 @@ export interface Invoice {
 }
 
 export interface ListInvoicesRequest {
-  /** Partial Matches on either the client's email or name. */
-  client?: string;
-  status?: string;
-  page?: number;
+  /** An integer used to search the client by ID */
+  clientId?: string;
+  /**
+   * Return only invoices that are scheduled for after the specified date. Use
+   * the following date format: yyyy-MM-dd (ex.: 2016-08-21)
+   */
   startDate?: string;
+  /**
+   * Return only invoices that are scheduled for before the specified date.
+   * Use the following date format: yyyy-MM-dd (ex.: 2016-08-21)
+   */
   endDate?: string;
+  /**
+   * Possible values are "Draft", "Scheduled", "Unpaid", "Paid", "PastDue",
+   * "Refunded", "Forgiven" and "Canceled".
+   */
+  status?: string;
+  /**
+   * Use this to get invoices for a specific practitioner. The email must match
+   * the email used in the practitioner IntakeQ account. If empty, invoices for
+   * all practitioners in the organization will be returned.
+   */
   practitionerEmail?: string;
+  /**
+   * This method returns a maximum of 100 records. Use the page parameter to
+   * implement paging from your end. Use 1 for page 1, 2 for page 2, etc.
+   */
+  page?: string;
+  /**
+   * Return only invoices that have been changed after the specified date. Use
+   * the following date format: yyyy-MM-dd (ex.: 2016-08-21)
+   */
+  lastUpdateStartDate?: string;
+  /**
+   * Return only invoices that have been changed before the specified date.
+   * Use the following date format: yyyy-MM-dd (ex.: 2016-08-21)
+   */
+  lastUpdateEndDate?: string;
 }
 
 export interface InvoiceReceived {
+  /**
+   * Describes which action triggered this event. Possible values:
+   *  - InvoiceIssued - triggered once when the invoice is initially created.
+   *  - InvoicePaid - triggered when the invoice has been paid by the customer.
+   *  - InvoicePaymentPlanChargeFailed - triggered when a recurring payment
+   *    plan charge has failed.
+   *  - InvoiceAutoChargeFailed - triggered when an appointment auto-charge has
+   *    failed.
+   *  - InvoiceCancelled - triggered when an invoice has been canceled.
+   *  - InvoicePaymentRefunded - triggered when an invoice payment has been
+   *    refunded.
+   */
   EventType:
     | 'InvoiceIssued'
     | 'InvoicePaid'
@@ -119,6 +162,9 @@ export interface InvoiceReceived {
     | 'InvoiceAutoChargeFailed'
     | 'InvoiceCancelled'
     | 'InvoicePaymentRefunded';
+  /**
+   * Boolean value indicating whether the action was performed by a client or by a staff member.
+   */
   ActionPerformedByClient: boolean;
-  Invoice: Invoice; //refer to the invoice object above
+  Invoice: Invoice;
 }
