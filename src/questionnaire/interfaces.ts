@@ -68,8 +68,13 @@ export interface IntakeFormSummary {
   QuestionnaireId: string;
   /**  The email of the practitioner associated with the intake (for accounts with multiple practitioners) */
   Practitioner: string;
-  /** The name of the practitioner associated with the intake (for accounts with multiple practitioners) */
-  PractitionerName: string;
+  /** 
+   * The ID of the practitioner associated with the intake (for accounts with
+   * multiple practitioners)
+   */
+  PractitionerId: string;
+  /** The external client ID of the client associated with the intake */
+  ExternalClientId?: string;
   /** If the form is associated with an appointment then this is the id */
   AppointmentId?: string;
 }
@@ -107,11 +112,42 @@ export interface Practitioner {
 }
 
 export interface ListIntakeFormsRequest {
+  /**
+   * A string used to search the client by name or email. Partial matches will
+   * be respected, so a search for "Paul" will return all intakes for clients
+   * with Paul in their names. Likewise, a search for "paul.smith@gmail.com"
+   * will return all intakes for that specific client.
+   */
   client?: string;
+  /**
+   * Return only intakes that were created after the specified date. Use the
+   * following date format: yyyy-MM-dd (ex.: 2016-08-21)
+   */
   startDate?: string;
+  /**
+   * Return only intakes that were created before the specified date. Use the
+   * following date format: yyyy-MM-dd (ex.: 2016-08-21)
+   */
   endDate?: string;
+  /**
+   * This method returns a maximum of 100 records. Use the page parameter to
+   * implement paging from your end. Use 1 for page 1, 2 for page 2, etc.
+   */
   page?: number;
+  /**
+   * By default, only submitted forms are returned. Set this parameter to true
+   * if you want this method to return all intakes, regardless of their status.
+   */
   all?: boolean;
+  /**
+   * Return only intakes from a specific client using the client ID number.
+   */
+  clientId: string;
+  /**
+   * Return only intakes from a specific client using an external client ID
+   * string that you have specified when saving a client using the Clients API.
+   */
+  externalClientId: string;
 }
 
 export interface SendQuestionnaireRequestBase {
