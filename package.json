@@ -13,7 +13,9 @@
     "build": "./scripts/build.sh",
     "dev": "./scripts/dev.sh",
     "test": "jest --passWithNoTests",
-    "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx",
+    "lint-staged": "lint-staged",
+    "prepare": "husky install"
   },
   "repository": "git://github.com/lifebac/intakeq-api.git",
   "author": "LifeBac Developers <developer@lifebac.com>",
@@ -36,7 +38,7 @@
     "dts-bundle": "^0.7.3",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-typescript-prettier": "^2.1.1",
-    "husky": "^4.2.3",
+    "husky": "^7.0.0",
     "jest": "27.2.1",
     "lint-staged": "^10.1.0",
     "prettier": "^2.0.2",
@@ -45,14 +47,9 @@
     "ts-jest": "27.0.5",
     "typescript": "^3.9.7"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "*": [
-      "prettier --write"
+      "prettier --write --ignore-unknown"
     ]
   }
 }
