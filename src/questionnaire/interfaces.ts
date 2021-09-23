@@ -142,12 +142,12 @@ export interface ListIntakeFormsRequest {
   /**
    * Return only intakes from a specific client using the client ID number.
    */
-  clientId: string;
+  clientId?: string;
   /**
    * Return only intakes from a specific client using an external client ID
    * string that you have specified when saving a client using the Clients API.
    */
-  externalClientId: string;
+  externalClientId?: string;
 }
 
 export interface SendQuestionnaireRequestBase {
