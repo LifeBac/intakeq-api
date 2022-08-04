@@ -27,6 +27,16 @@ export interface Appointment {
    * * Missed – The appointment has been marked as missed by the staff.
    */
   Status: AppointmentStatus;
+  /** When the appointment is scheduled for in ISO format */
+  StartDateIso: string;
+  /** When the appointment is scheduled to end in ISO format */
+  EndDateIso: string;
+  /** When the appointment is scheduled for in local format */
+  StartDateLocal: string;
+  /** When the appointment is scheduled to end in local format */
+  EndDateLocal: string;
+  /** When the appointment is scheduled for in local formatted format */
+  StartDateLocalFormatted: string;
   /** When the appointment is scheduled for in Unix timestamp */
   StartDate: number;
   /** When the appointment ends in Unix timestamp */
@@ -117,7 +127,7 @@ export interface ListAppointmentsRequest {
 }
 
 export interface GetSettingsResponse {
-  Locatons: {
+  Locations: {
     /** The Id of the location */
     Id: string;
     /** Name of the location */
