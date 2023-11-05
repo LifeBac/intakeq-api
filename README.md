@@ -1,19 +1,8 @@
-# IntakeQ API
-
-A wrapper around the [IntakeQ](https://intakeq.com/) APIs. Written in TypeScript.
-
-## Usage
-
-```
-npm install --save @lifebac/intakeq
-```
-
-Simply instantiate the API with your API Key and you should be able to start using it.
 
 ```ts
 import { IntakeQApi } from '@lifebac/intakeq';
 
-const IntakeQClient = new IntakeQApi('api-key-in-here');
+const IntakeQClient = new IntakeQApi('6f712367909d4bb31a84b5780c03e3f82ef9cd65');
 
 const listClients = async () => {
   const res = await IntakeQClient.Client.listClients(
@@ -21,9 +10,10 @@ const listClients = async () => {
     true
   );
 
-  // Do something with the result
+
   console.log(res);
 };
 
 listClients();
 ```
+
